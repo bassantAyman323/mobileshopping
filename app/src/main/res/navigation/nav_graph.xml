@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/shopFregment">
+
+    <fragment
+        android:id="@+id/shopFregment"
+        android:name="com.example.shoppingapp.views.shopFregment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop_fregment">
+        <action
+            android:id="@+id/action_shopFregment_to_productDataFregment"
+            app:destination="@id/productDataFregment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
+        <action
+            android:id="@+id/action_shopFregment_to_cartFragement"
+            app:destination="@id/cartFragement" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDataFregment"
+        android:name="com.example.shoppingapp.views.ProductDataFregment"
+        android:label="Product Detail"
+        tools:layout="@layout/fragment_product_data_fregment">
+        <action
+            android:id="@+id/action_productDataFregment_to_cartFragement"
+            app:destination="@id/cartFragement" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragement"
+        android:name="com.example.shoppingapp.views.CartFragement"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart_fragement">
+        <action
+            android:id="@+id/action_cartFragement_to_orderFragement"
+            app:destination="@id/orderFragement"
+            app:popUpTo="@id/shopFregment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragement"
+        android:name="com.example.shoppingapp.views.OrderFragement"
+        android:label="Order"
+        tools:layout="@layout/fragment_order_fragement">
+        <action
+            android:id="@+id/action_orderFragement_to_shopFregment"
+            app:destination="@id/shopFregment" />
+    </fragment>
+</navigation>

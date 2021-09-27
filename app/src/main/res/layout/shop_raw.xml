@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="Product"
+            type="com.example.shoppingapp.models.Product" />
+        <variable
+            name="ShopInterface"
+            type="com.example.shoppingapp.adaptors.ShopListAdapter.ShopInterface" />
+
+    </data>
+
+    <LinearLayout
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> ShopInterface.onItemClick(Product)}">
+
+        <ImageView
+            android:layout_width="214dp"
+            android:layout_height="169dp"
+            android:src="@drawable/images"
+            android:id="@+id/image"
+            android:layout_gravity="center"
+            android:productImage="@{Product.ImageURL}"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:text="@{Product.name}"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{String.valueOf(Product.price+`$`)}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/des"
+            android:text="@{Product.description}"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn"
+            android:layout_gravity="center"
+            android:text="Add to cart"
+            android:onClick="@{() -> ShopInterface.addItem(Product) }"
+
+            />
+
+    </LinearLayout>
+</layout>
